@@ -6,30 +6,20 @@ import { createNewUser, signin } from './handlers/users';
 
 const app = express()
 
-// ------ Middleware ------ //
-// Logging (global)
+// middleware
 app.use(morgan('dev'))
-
-// Allows client to send json
 app.use(express.json())
-
-// Allows client to send query string (route params)
 app.use(express.urlencoded({ extended: true }));
-
-// Custom middleware
-app.use((req, res, next) => {
-    req.shhhh_secret = 'doggy';
-    next();
-})
-
-// ------------------------ //
 
 app.get('/', (req, res) => {
     res.status(200)
     res.json({ message: 'hello' })
 })
 
+// Route protector
 app.use('/api', protect, router);
+
+// Unprotected routes
 app.post('/user', createNewUser)
 app.post('/signin', signin)
 

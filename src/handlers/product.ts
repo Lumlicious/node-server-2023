@@ -1,6 +1,7 @@
 import prisma from "../db"
-
-// Get all
+/**
+ * Get all products
+ */
 export const getProducts = async (req, res) => {
     const user = await prisma.user.findUnique({
         where: {
@@ -14,7 +15,9 @@ export const getProducts = async (req, res) => {
     res.json({ data: user.products })
 }
 
-// Get one
+/**
+ * Get product
+ */
 export const getOneProduct = async (req, res) => {
     const id = req.params.id
 
@@ -28,7 +31,9 @@ export const getOneProduct = async (req, res) => {
     res.json({ data: product })
 }
 
-// Create one
+/**
+ * Create new product
+ */
 export const createProduct = async (req, res) => {
     const product = await prisma.product.create({
         data: {
@@ -41,7 +46,9 @@ export const createProduct = async (req, res) => {
 }
 
 
-// Update one
+/**
+ * Update product
+ */
 export const updateProduct = async (req, res) => {
     const updated = await prisma.product.update({
         where: {
@@ -58,7 +65,9 @@ export const updateProduct = async (req, res) => {
     res.json({ data: updated })
 }
 
-// Delete one
+/**
+ * Delete product
+ */
 export const deleteProduct = async (req, res) => {
     const deleted = await prisma.product.delete({
         where: {

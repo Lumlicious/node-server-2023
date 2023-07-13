@@ -2,7 +2,11 @@
 import prisma from '../db';
 import { comparePasswords, createJWT, hashPassword } from '../modules/auth';
 
-// Route handler for creating new user
+
+
+/**
+ * Route handler for creating new user
+ */
 export const createNewUser = async (req, res) => {
     const user = await prisma.user.create({
         data: {
@@ -15,6 +19,9 @@ export const createNewUser = async (req, res) => {
     res.json({ token })
 }
 
+/**
+ * Route handler for signing in user
+ */
 export const signin = async (req, res) => {
     // check if user exists
     const user = await prisma.user.findUnique({

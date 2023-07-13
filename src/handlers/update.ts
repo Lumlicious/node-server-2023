@@ -2,8 +2,6 @@ import prisma from "../db"
 
 /**
  * Get Single Update
- * @param req 
- * @param res 
  */
 export const getOneUpdate = async (req, res) => {
   const update = await prisma.update.findUnique({
@@ -17,8 +15,6 @@ export const getOneUpdate = async (req, res) => {
 
 /**
  * Get Updates
- * @param req 
- * @param res 
  */
 export const getUpdates = async (req, res) => {
   const products = await prisma.product.findMany({
@@ -40,9 +36,6 @@ export const getUpdates = async (req, res) => {
 
 /**
  * Create new update
- * @param req 
- * @param res 
- * @returns 
  */
 export const createUpdate = async (req, res) => {
 
@@ -72,9 +65,6 @@ export const createUpdate = async (req, res) => {
 
 /**
  * Update the Update
- * @param req
- * @param res 
- * @returns 
  */
 export const updateUpdate = async (req, res) => {
   const products = await prisma.product.findMany({
@@ -110,9 +100,6 @@ export const updateUpdate = async (req, res) => {
 
 /**
  * Delete Update
- * @param req 
- * @param res 
- * @returns 
  */
 export const deleteUpdate = async (req, res) => {
   const products = await prisma.product.findMany({
